@@ -42,4 +42,3 @@ jobs:
           echo "Health:   ${{ github.event.client_payload.health }}"
           echo "Argo:     ${{ github.event.client_payload.argo_link }}"
 
-      # Agrega aquí los steps reales del pipeline de svc-b
