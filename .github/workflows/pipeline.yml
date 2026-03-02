@@ -1,0 +1,19 @@
+name: Pipeline on Argo Deploy
+
+on:
+  repository_dispatch:
+    types: [argo_deploy]
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show payload
+        run: |
+          echo "App:      ${{ github.event.client_payload.app }}"
+          echo "Env:      ${{ github.event.client_payload.env }}"
+          echo "Revision: ${{ github.event.client_payload.revision }}"
+          echo "Health:   ${{ github.event.client_payload.health }}"
+          echo "Argo:     ${{ github.event.client_payload.argo_link }}"
+
+      # Agrega aquí los steps reales del pipeline de este servicio
